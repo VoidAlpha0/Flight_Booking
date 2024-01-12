@@ -1,38 +1,31 @@
 package com.Airbus.entity;
+
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-@Entity
-public class Location {
+import javax.persistence.SequenceGenerator;
+
+public class location {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	@GeneratedValue(generator = "locationgen" ,strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "locatoingen", sequenceName = "location_seq",initialValue = 1,allocationSize = 1)
+	private Integer locId;
 	@Column(nullable = false)
 	private String terminal;
 	@Column(nullable = false)
 	private String city;
 	@Column(nullable = false)
-	private String state;
+	private String country;
 	
 	
 	
-	public Location() {
-		
+	public Integer getLocId() {
+		return locId;
 	}
-	public long getId() {
-		return id;
-	}
-	public Location(String terminal, String city, String state) {
-		super();
-		this.terminal = terminal;
-		this.city = city;
-		this.state = state;
-	}
-	public void setId(long id) {
-		this.id = id;
+	public void setLocId(Integer locId) {
+		this.locId = locId;
 	}
 	public String getTerminal() {
 		return terminal;
@@ -46,9 +39,11 @@ public class Location {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getState() {
-		return state;
+	public String getCountry() {
+		return country;
 	}
-	public void setState(String state) {
-		this.state = state;
-	}}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+}

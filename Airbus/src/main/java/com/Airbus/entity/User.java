@@ -2,10 +2,14 @@ package com.Airbus.entity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -18,101 +22,46 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 @Entity
 @Table(name = "user",schema = "bus")
 public class User {
-	
-	@Nullable
 	@Id
+	@GeneratedValue(generator = "usergen" ,strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "usergen", sequenceName = "user_seq",initialValue = 1,allocationSize = 1)
 	private Integer userId;
-	
-	@NotNull(message = "username cannot be null")
-	private String userName;
-	
-	@NotNull(message = "password cannot be null")
-	private String password;
-	
-	@NotNull(message = "phone cannot be null")
-	private Long phone;
-	
-	@NotBlank(message = "email cannot be null")
-	private String email;
-	
-	@NotNull(message= "uname cannot be null")
-	private String uname;
-	
-	@OneToMany(cascade = CascadeType.ALL) //One user can make many bookings
-	@JoinColumn(name = "user_id") //user_id column will be merged into BookingDetails Entity
-	private List<BookingDetails> bookingDetails = new ArrayList<BookingDetails>();
-	public String getUname() {
-		return uname;
-	}
-
-	public void setUname(String uname) {
-		this.uname = uname;
-	}
-
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public User(Integer userId, String uname, String userName, String password, Long phone, String email) {
-		super();
-		this.userId = userId;
-		this.uname=uname;
-		this.userName = userName;
-		this.password = password;
-		this.phone = phone;
-		this.email = email;
-		
-	}
-
+	@Column(unique = true, nullable= false)
+	private String useremail;
+	private String username;
+	private String userphonenumber;
+	private String userpassword;
 	public Integer getUserId() {
 		return userId;
 	}
-
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-
-	public String getUserName() {
-		return userName;
+	public String getUseremail() {
+		return useremail;
 	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUseremail(String useremail) {
+		this.useremail = useremail;
 	}
-
-	@JsonIgnore
-	public String getPassword() {
-		return password;
+	public String getUsername() {
+		return username;
 	}
-	
-	@JsonProperty(access = Access.WRITE_ONLY)
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
-	public Long getPhone() {
-		return phone;
+	public String getUserphonenumber() {
+		return userphonenumber;
 	}
-
-	public void setPhone(Long phone) {
-		this.phone = phone;
+	public void setUserphonenumber(String userphonenumber) {
+		this.userphonenumber = userphonenumber;
 	}
-
-	public String getEmail() {
-		return email;
+	public String getUserpassword() {
+		return userpassword;
 	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public List<BookingDetails> getBookingDetails() {
-		return bookingDetails;
-	}
-
-	public void setBookingDetails(List<BookingDetails> bookingDetails) {
-		this.bookingDetails = bookingDetails;
+	public void setUserpassword(String userpassword) {
+		this.userpassword = userpassword;
 	}
 	
-
+	
+	
 }

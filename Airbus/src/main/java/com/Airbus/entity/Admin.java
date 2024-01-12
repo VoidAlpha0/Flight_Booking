@@ -2,7 +2,10 @@ package com.Airbus.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,53 +20,40 @@ import lombok.NoArgsConstructor;
 @Table(name = "admins",schema = "bus")
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Admin {
-	public Admin() {
-		
-	}
-	public int getAdminId() {
-		return adminId;
-	}
-
-	public void setAdminId(int adminId) {
-		this.adminId = adminId;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getAdminName() {
-		return adminName;
-	}
-
-	public void setAdminName(String adminName) {
-		this.adminName = adminName;
-	}
-
 	@Id
-	private int adminId;
-	
-	@JsonIgnore
-	@JsonProperty(access = Access.WRITE_ONLY)
-	@Column(nullable = false) //not-null
-	private String password;
-	
+	@GeneratedValue(generator = "admingen" ,strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "admingen", sequenceName = "admin_seq",initialValue = 1,allocationSize = 1)
+	private Integer id;
 	@Column(nullable = false)
-	private String adminName;
+	private String adminname;
+	@Column(nullable = false)
+	private String adminpassword;
+	@Column(unique = true, nullable = false)
+	private String adminemail;
 	
-	@Column(nullable=false)
-	private String adminUName;
-
-	public String getAdminUName() {
-		return adminUName;
+	
+	public Integer getId() {
+		return id;
 	}
-	public void setAdminUName(String adminUName) {
-		this.adminUName = adminUName;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	
-	
+	public String getAdminname() {
+		return adminname;
+	}
+	public void setAdminname(String adminname) {
+		this.adminname = adminname;
+	}
+	public String getAdminpassword() {
+		return adminpassword;
+	}
+	public void setAdminpassword(String adminpassword) {
+		this.adminpassword = adminpassword;
+	}
+	public String getAdminemail() {
+		return adminemail;
+	}
+	public void setAdminemail(String adminemail) {
+		this.adminemail = adminemail;
+	}
 }
