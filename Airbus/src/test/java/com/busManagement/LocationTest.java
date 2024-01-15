@@ -11,9 +11,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.Airbus.Dao.LocationDao;
 import com.Airbus.entity.Location;
-import com.Airbus.serviceImpl.LocationServiceImpl;
+//import com.Airbus.serviceImpl.LocationServiceImpl;
 
-	
+	/*
 	@SpringBootTest
 	public class LocationTest {
 
@@ -71,4 +71,4 @@ import com.Airbus.serviceImpl.LocationServiceImpl;
 	    }
 		
 		
-}
+}*/

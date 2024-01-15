@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class location {
+public class Location {
 	
 	@Id
 	@GeneratedValue(generator = "locationgen" ,strategy = GenerationType.SEQUENCE)
