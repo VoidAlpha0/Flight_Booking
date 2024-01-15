@@ -1,16 +1,18 @@
 package com.Airbus.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+@Entity
 public class location {
 	
 	@Id
 	@GeneratedValue(generator = "locationgen" ,strategy = GenerationType.SEQUENCE)
-	@SequenceGenerator(name = "locatoingen", sequenceName = "location_seq",initialValue = 1,allocationSize = 1)
+	@SequenceGenerator(name = "locatoingen", sequenceName = "location_seq",initialValue = 1 ,allocationSize = 1)
 	private Integer locId;
 	@Column(nullable = false)
 	private String terminal;

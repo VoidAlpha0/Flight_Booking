@@ -9,8 +9,8 @@ import com.Airbus.entity.User;
 
 @Repository
 public interface UserDao extends JpaRepository<User, Integer> {
-	@Query("SELECT a FROM User a WHERE a.uname = :uname")
-	User findByuname(@Param("uname") String uname);
+	@Query("SELECT a FROM User a WHERE a.useremail = :useremail")
+	User findByuname(@Param("useremail") String useremail);
 
 	
 }

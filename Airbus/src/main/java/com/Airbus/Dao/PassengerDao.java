@@ -3,9 +3,9 @@ package com.Airbus.Dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.Airbus.entity.Passenger;
+import com.Airbus.entity.Passengers;
 
 @Repository
-public interface PassengerDao extends JpaRepository<Passenger, Integer> {
+public interface PassengerDao extends JpaRepository<Passengers, Integer> {
 
 }
