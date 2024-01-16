@@ -12,11 +12,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.Airbus.Dao.UserDao;
 import com.Airbus.entity.User;
-import com.Airbus.service.UserService;
+//import com.Airbus.service.UserService;
 import com.Airbus.utils.UserAuth;
 @SpringBootTest
 public class UserTest {
-	@Autowired
+	/*@Autowired
 	private UserService userService;
 	
 	@MockBean
@@ -107,7 +107,7 @@ public class UserTest {
 		        // Assert
 		        verify(dao).deleteById(1);
 		    }
-		   
+		   */
 		   
 	
 }

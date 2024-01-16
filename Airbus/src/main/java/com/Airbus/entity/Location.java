@@ -12,7 +12,7 @@ public class Location {
 	
 	@Id
 	@GeneratedValue(generator = "locationgen" ,strategy = GenerationType.SEQUENCE)
-	@SequenceGenerator(name = "locatoingen", sequenceName = "location_seq",initialValue = 1 ,allocationSize = 1)
+	@SequenceGenerator(name = "locationgen", sequenceName = "location_seq",initialValue = 1 ,allocationSize = 1)
 	private Integer locId;
 	@Column(nullable = false)
 	private String terminal;

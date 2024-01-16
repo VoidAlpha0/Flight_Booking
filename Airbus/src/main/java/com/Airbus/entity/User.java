@@ -1,6 +1,9 @@
 package com.Airbus.entity;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -19,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+
+
 @Entity
 @Table(name = "user",schema = "bus")
 public class User {
@@ -28,9 +34,17 @@ public class User {
 	private Integer userId;
 	@Column(unique = true, nullable= false)
 	private String useremail;
+	
 	private String username;
 	private String userphonenumber;
 	private String userpassword;
+	/******************************JOINS*************************************/
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="user_passengers", joinColumns= {@JoinColumn(name="userId")}, inverseJoinColumns= {@JoinColumn(name="passId")})
+	private Set<Passengers>passengers=new HashSet<Passengers>();
+	
+	/**************************GETTERS AND SETTERS***************************/
+	
 	public Integer getUserId() {
 		return userId;
 	}
@@ -61,7 +75,15 @@ public class User {
 	public void setUserpassword(String userpassword) {
 		this.userpassword = userpassword;
 	}
+	/***new stuff i added- Arvind*******************/
+	public Set<Passengers> getPassengers() {
+		return passengers;
+	}
+	public void setPassengers(Set<Passengers> passengers) {
+		this.passengers = passengers;
+	}
 	
-	
-	
+	public void addPassenger(Passengers passenger) {
+		this.passengers.add(passenger);
+		}
 }
