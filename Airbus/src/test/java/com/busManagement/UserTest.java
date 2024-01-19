@@ -13,7 +13,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.Airbus.Dao.UserDao;
 import com.Airbus.entity.User;
 //import com.Airbus.service.UserService;
-import com.Airbus.utils.UserAuth;
+//import com.Airbus.utils.UserAuth;
 @SpringBootTest
 public class UserTest {
 	/*@Autowired
