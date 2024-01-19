@@ -30,7 +30,7 @@ public class UserService {
 	    return userdao.findAll();
 	}
 	
-	public User findUserbyID(int id) {
+	public User findUserbyID(Integer id) {
 		Optional<User> usr= userdao.findById(id);
 		User user= usr.get();
 		return user;
