@@ -1,11 +1,14 @@
 package com.Airbus.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Passengers {
@@ -18,6 +21,9 @@ public class Passengers {
 	private String passDOB;
 	//private String userId;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ticket", referencedColumnName = "ticketId")
+	private Ticket ticket;
 	
 	
 	public Integer getPassId() {

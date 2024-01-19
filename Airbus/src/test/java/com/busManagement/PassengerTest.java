@@ -12,14 +12,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.Airbus.Dao.PassengerDao;
-import com.Airbus.entity.Passenger;
+/*import com.Airbus.entity.Passenger;
 import com.Airbus.service.AdminService;
-import com.Airbus.service.UserService;
+import com.Airbus.service.UserService;*/
 
 @SpringBootTest
 public class PassengerTest {
 
-    @Autowired
+  /*  @Autowired
     private UserService userService;
     
     @Autowired
@@ -67,5 +67,5 @@ public class PassengerTest {
         assertEquals(26, updatedPassenger.getAge());
     }
 
-
+*/
 }

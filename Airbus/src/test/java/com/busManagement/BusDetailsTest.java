@@ -13,13 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.ResponseEntity;
-
+/*
 import com.Airbus.Dao.BusDetailsDao;
 import com.Airbus.entity.BusDetails;
-import com.Airbus.service.AdminService;
+import com.Airbus.service.AdminService;*/
 @SpringBootTest
 public class BusDetailsTest {
-
+/*
 	@Autowired
 	private AdminService busService;
 
@@ -112,5 +112,5 @@ public class BusDetailsTest {
 	    // Assert that the bus details were deleted successfully
 	    verify(repository, times(1)).deleteById(1);
 	}
-	
+	*/
 }

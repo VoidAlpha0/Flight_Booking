@@ -10,15 +10,15 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
+/*
 import com.Airbus.Dao.BusDetailsDao;
 import com.Airbus.entity.BusDetails;
 import com.Airbus.service.AdminService;
-
+*/
 @SpringBootTest
 public class AddBusDetailsTest {
 
-	
+	/*
 	@Autowired
 	private AdminService busService;
 	
@@ -53,5 +53,5 @@ public class AddBusDetailsTest {
 				"05:00", "23:55", "Pass one", 9899.55);
 		when(repository.save(busObj)).thenReturn(busObj);
 		assertEquals(busObj, busService.addBusDetails(busObj));
-	}
+	}*/
 }

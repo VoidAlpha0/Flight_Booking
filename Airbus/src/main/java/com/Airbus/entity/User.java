@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 
 
+
 @Entity
 @Table(name = "user",schema = "bus")
 public class User {
@@ -86,4 +87,8 @@ public class User {
 	public void addPassenger(Passengers passenger) {
 		this.passengers.add(passenger);
 		}
+	
+	public void removePassenger(Passengers passenger) {
+		this.passengers.remove(passenger);
+	}
 }
