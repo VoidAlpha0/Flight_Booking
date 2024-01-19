@@ -24,7 +24,7 @@ public class Admin {
 	@GeneratedValue(generator = "admingen" ,strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "admingen", sequenceName = "admin_seq",initialValue = 1,allocationSize = 1)
 	private Integer id;
-	@Column(nullable = false)
+	@Column(nullable = false, unique =true)
 	private String adminname;
 	@Column(nullable = false)
 	private String adminpassword;

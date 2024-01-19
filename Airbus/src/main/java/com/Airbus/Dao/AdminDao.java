@@ -9,7 +9,7 @@ import com.Airbus.entity.Admin;
 
 @Repository
 public interface AdminDao extends JpaRepository<Admin, Integer> {
-	@Query("SELECT a FROM Admin a WHERE a.adminname = :adminname")
-	Admin findByAdminUName(@Param("adminname") String adminname);
+	@Query("SELECT a FROM Admin a WHERE a.adminemail = :adminemail")
+	Admin findByAdminEmail(@Param("adminemail") String adminemail);
 
 }
