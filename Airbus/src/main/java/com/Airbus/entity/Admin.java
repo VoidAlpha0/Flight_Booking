@@ -23,7 +23,7 @@ public class Admin {
 	@Id
 	@GeneratedValue(generator = "admingen" ,strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "admingen", sequenceName = "admin_seq",initialValue = 1,allocationSize = 1)
-	private Integer id;
+	private Integer adminid;
 	@Column(nullable = false, unique =true)
 	private String adminname;
 	@Column(nullable = false)
@@ -33,10 +33,10 @@ public class Admin {
 	
 	
 	public Integer getId() {
-		return id;
+		return adminid;
 	}
 	public void setId(Integer id) {
-		this.id = id;
+		this.adminid = id;
 	}
 	public String getAdminname() {
 		return adminname;

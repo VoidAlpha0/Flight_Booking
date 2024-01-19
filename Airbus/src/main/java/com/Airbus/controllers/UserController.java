@@ -1,13 +1,18 @@
 package com.Airbus.controllers;
 
+import java.util.Optional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.Airbus.services.UserService;
+
 import com.Airbus.entity.User;
 
 
@@ -37,5 +42,19 @@ public class UserController {
 		      
 		        return new ResponseEntity<>(usr, HttpStatus.OK);
 		    }
+		
+		//search user by id
+				//@GetMapping("/id/{id}")
+				/*public ResponseEntity<User> EmployeeById(@PathVariable("id") Long userid){
+					//List<Employee> employees= adminserv.findEmployeeByName(name);
+					Optional<User> tempusr=userServ.findById(eid);
+					Employee emp=tempemp.get();
+					if(emp==null) {
+						throw new ItemNotFoundException("Admin with mail" + eid + " is not Found.Pls Give another mail!");
+					}
+					
+					 return new ResponseEntity<>(emp, HttpStatus.OK);
+					
+				}*/
 
 }

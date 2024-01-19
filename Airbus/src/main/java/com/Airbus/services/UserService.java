@@ -12,6 +12,7 @@ import com.Airbus.Dao.UserDao;
 import com.Airbus.entity.User;
 
 
+
 @Service
 @Transactional
 public class UserService {
@@ -27,6 +28,13 @@ public class UserService {
 
 	public List<User> findAllUsers() {
 	    return userdao.findAll();
+	}
+	
+	public User findUserbyID(int id) {
+		Optional<User> usr= userdao.findById(id);
+		User user= usr.get();
+		return user;
+		
 	}
 
 	public User updateUser(User user) {
