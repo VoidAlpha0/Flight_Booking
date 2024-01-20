@@ -21,7 +21,7 @@ import com.Airbus.Dao.UserDao;
 @RequestMapping("/User")
 public class UserController {
 	
-	UserService userServ;
+	ad userServ;
 	
 	@Autowired
 	UserDao userdao;

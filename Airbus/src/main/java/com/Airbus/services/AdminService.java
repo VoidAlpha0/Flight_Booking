@@ -40,4 +40,9 @@ public class AdminService {
 	public void deleteAdmin(Integer id) {
 		admindao.deleteById(id);
 	}
+
+	public Admin findAdminbyID(Integer adminid) {
+		Admin ad =admindao.findByadminid(adminid);
+		return ad;
+	}
 }
