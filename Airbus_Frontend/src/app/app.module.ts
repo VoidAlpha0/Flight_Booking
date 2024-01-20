@@ -25,7 +25,8 @@ import { UserHomeComponent } from './user-home/user-home.component';
       {path : 'admin', component : AdminHomeComponent},
       {path : 'admin-login', component : AdminLoginComponent},
       {path : 'user-login', component : UserLoginComponent},
-      {path : 'user-register', component : UserRegisterComponent}
+      {path : 'user-register', component : UserRegisterComponent},
+      {path:'user-home/:userId', component:UserHomeComponent}
     ])
   ],
   providers: [],

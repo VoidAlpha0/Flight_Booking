@@ -1,6 +1,7 @@
 package com.Airbus.entity;
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,13 +18,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "admins",schema = "bus")
-@Data @NoArgsConstructor @AllArgsConstructor
+@Table(name = "admin",schema = "bus")
 public class Admin {
 	@Id
-	@GeneratedValue(generator = "admingen" ,strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "admingen" ,strategy =  GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "admingen", sequenceName = "admin_seq",initialValue = 1,allocationSize = 1)
 	private Integer adminid;
+	
 	@Column(nullable = false, unique =true)
 	private String adminname;
 	@Column(nullable = false)
@@ -32,11 +33,11 @@ public class Admin {
 	private String adminemail;
 	
 	
-	public Integer getId() {
+	public Integer getAdminid() {
 		return adminid;
 	}
-	public void setId(Integer id) {
-		this.adminid = id;
+	public void setAdminid(Integer adminid) {
+		this.adminid = adminid;
 	}
 	public String getAdminname() {
 		return adminname;

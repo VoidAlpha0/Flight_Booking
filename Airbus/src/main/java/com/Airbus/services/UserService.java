@@ -13,6 +13,7 @@ import com.Airbus.entity.User;
 
 
 
+
 @Service
 @Transactional
 public class UserService {
@@ -44,6 +45,10 @@ public class UserService {
 		user.setUserpassword(usr.getUserpassword());
 		user.setUserphonenumber(usr.getUserphonenumber());
 	    return userdao.save(user);
+	}
+	
+	public User findUserByMail(String email) {
+		return userdao.findByuname(email);
 	}
 
 }

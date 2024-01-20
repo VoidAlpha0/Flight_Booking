@@ -21,7 +21,7 @@ import com.Airbus.Dao.UserDao;
 @RequestMapping("/User")
 public class UserController {
 	
-	ad userServ;
+	UserService userServ;
 	
 	@Autowired
 	UserDao userdao;
@@ -65,6 +65,18 @@ public class UserController {
 					
 					 return new ResponseEntity<>(user, HttpStatus.OK);
 					
+				}
+				
+	   //search user by email
+				@GetMapping("/detail/{mail}")
+				public ResponseEntity<User> UserByMail(@PathVariable("mail") String mail){
+					User user=userServ.findUserByMail(mail);
+					/*if(employee==null) {
+						throw new ItemNotFoundException("Admin with mail" + mail + " is not Found.Pls Give another mail!");
+					}*/
+					
+					 return new ResponseEntity<>(user, HttpStatus.OK);
+				
 				}
 
 }
