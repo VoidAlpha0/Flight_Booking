@@ -5,6 +5,17 @@
     <div class="row">
       <div class="col-sm-12 text-light rounded py-12">
         <div class="p-4 md-3">
+          <div *ngIf="user">
+            <h3><b>Welcome to BlackPoolBus! <span class="text-danger"><i>{{user.username}}</i></span></b></h3>
+            <button class="btn btn-danger float-right" (click)="logout()">Logout</button>
+            <small><b>User Id: {{ user.userId }}</b></small><br />
+            <small><b>User Id: {{ user.username}}</b></small><br />
+  
+          </div>
+        </div>
+      </div>
+    </div>  
+
           <!--<div *ngIf="user">
             <h3><b>Welcome to BlackPoolBus! <span class="text-danger"><i>{{user.userName}}</i></span></b></h3>
             <button class="btn btn-danger float-right" (click)="logout()">Logout</button>

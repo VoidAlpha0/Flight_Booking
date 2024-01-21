@@ -15,13 +15,25 @@ export class UserServiceService {
   result: any;
   constructor(private http: HttpClient) { }
 
-  public finduserbyemail(user: any): Observable<any> {
-    var email = user.email;
-    console.log(user.email);
+  public finduserbyemail(useremail: any): Observable<any> {
+    //var email = user.email;
+    console.log(useremail);
     var result: Observable<any> = this.http.get<any>(
-      `${this.apiServerUrl}/User/detail/${email}`
+      `${this.apiServerUrl}/User/detail/${useremail}`
     );
     console.log('this is result' + result);
     return result;
   }
+
+  public finduserbyID(userId: any): Observable<any> {
+    //var email = user.email;
+    console.log(userId);
+    var result: Observable<any> = this.http.get<any>(
+      `${this.apiServerUrl}/User/details/${userId}`
+    );
+    console.log('this is result' + result);
+    return result;
+  }
+
+
 }

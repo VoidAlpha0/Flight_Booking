@@ -8,6 +8,9 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,11 @@ import { UserHomeComponent } from './user-home/user-home.component';
       {path : 'user-login', component : UserLoginComponent},
       {path : 'user-register', component : UserRegisterComponent},
       {path:'user-home/:userId', component:UserHomeComponent}
-    ])
+    ]),
+
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
