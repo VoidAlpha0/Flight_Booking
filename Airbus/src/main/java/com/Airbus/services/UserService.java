@@ -50,5 +50,9 @@ public class UserService {
 	public User findUserByMail(String email) {
 		return userdao.findByuname(email);
 	}
+	
+	public User showUserUsingLogin(String email,String password) {
+		return userdao.findByUseremailAndUserpassword(email, password);
+	}
 
 }

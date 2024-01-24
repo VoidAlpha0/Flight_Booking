@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,8 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Airbus.services.UserService;
 
 import com.Airbus.entity.User;
+import com.Airbus.entity.Passengers;
 import com.Airbus.Dao.UserDao;
-
+import com.Airbus.Dao.PassengerDao;
 @RestController
 @RequestMapping("/User")
 public class UserController {
@@ -25,6 +27,9 @@ public class UserController {
 	
 	@Autowired
 	UserDao userdao;
+	
+	@Autowired
+	PassengerDao passengerdao;
 	
 	public UserController(UserService service) {
 		super();
@@ -77,6 +82,51 @@ public class UserController {
 					
 					 return new ResponseEntity<>(user, HttpStatus.OK);
 				
+				}
+				
+				//Add a new passenger for User
+				@PostMapping("/create/{id}")
+				public ResponseEntity<Passengers> addPassenger(@RequestBody Passengers passenger, 
+						@PathVariable("id") Integer userId){
+					
+					 
+					
+					User user=userServ.findUserbyID(userId);
+					passengerdao.save(passenger);
+					user.addPassenger(passenger);
+					userdao.save(user);
+					
+					return new ResponseEntity<>(passenger, HttpStatus.OK);
+					
+			           // return new ItemNotFoundException("Employee with id" + id + " is not Found.Pls Give another Id!");
+	
+				}	
+				
+				@PostMapping("/userLogin")
+				public ResponseEntity<User> loginUser(@RequestBody User us){
+					User user = userServ.showUserUsingLogin(us.getUseremail(), us.getUserpassword());
+					return ResponseEntity.ok(user);
+				}
+				
+				
+				//Delete Passenger
+				@DeleteMapping("/delete/{id}/{pid}")
+				public ResponseEntity<Passengers> deletePassenger(@PathVariable("id") Integer userId,
+						@PathVariable("pid") Integer passId){
+					
+					 
+					
+					User user=userServ.findUserbyID(userId);
+					Optional<Passengers> temppass= passengerdao.findById(passId);
+					Passengers passenger= temppass.get();
+					passengerdao.save(passenger);
+					user.addPassenger(passenger);
+					userdao.save(user);
+					
+					return new ResponseEntity<>(passenger, HttpStatus.OK);
+					
+			           // return new ItemNotFoundException("Employee with id" + id + " is not Found.Pls Give another Id!");
+	
 				}
 
 }

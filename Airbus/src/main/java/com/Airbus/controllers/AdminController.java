@@ -48,7 +48,11 @@ public class AdminController {
 	}
 	
 	
-	
+	@PostMapping("/adminLogin")
+	public ResponseEntity<Admin> loginAdmin(@RequestBody Admin ad){
+		Admin admin = adminserv.showAdminUsingLogin(ad.getAdminemail(),ad.getAdminpassword());
+		return ResponseEntity.ok(admin);
+	}
 	
 	
 	

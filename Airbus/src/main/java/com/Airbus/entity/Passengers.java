@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Passengers {
@@ -24,6 +25,10 @@ public class Passengers {
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ticket", referencedColumnName = "ticketId")
 	private Ticket ticket;
+	
+	@ManyToOne
+    @JoinColumn(name = "user_passengers", insertable = false, updatable = false)
+    private User user;
 	
 	
 	public Integer getPassId() {
