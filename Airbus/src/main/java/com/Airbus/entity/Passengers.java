@@ -27,7 +27,7 @@ public class Passengers {
 	private Ticket ticket;
 	
 	@ManyToOne
-    @JoinColumn(name = "user_passengers", insertable = false, updatable = false)
+    @JoinColumn( insertable = false, updatable = false)
     private User user;
 	
 	

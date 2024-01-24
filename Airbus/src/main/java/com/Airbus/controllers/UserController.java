@@ -1,7 +1,7 @@
 package com.Airbus.controllers;
 
 import java.util.Optional;
-
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -85,7 +85,7 @@ public class UserController {
 				}
 				
 				//Add a new passenger for User
-				@PostMapping("/create/{id}")
+				@PostMapping("/createPass/{id}")
 				public ResponseEntity<Passengers> addPassenger(@RequestBody Passengers passenger, 
 						@PathVariable("id") Integer userId){
 					
@@ -101,7 +101,7 @@ public class UserController {
 			           // return new ItemNotFoundException("Employee with id" + id + " is not Found.Pls Give another Id!");
 	
 				}	
-				
+				//user login
 				@PostMapping("/userLogin")
 				public ResponseEntity<User> loginUser(@RequestBody User us){
 					User user = userServ.showUserUsingLogin(us.getUseremail(), us.getUserpassword());
@@ -127,6 +127,15 @@ public class UserController {
 					
 			           // return new ItemNotFoundException("Employee with id" + id + " is not Found.Pls Give another Id!");
 	
+				}
+				
+				@GetMapping("/getPass/{id}")//get passengers under a user
+				public ResponseEntity<Set<Passengers>> getPassengers(@PathVariable("id") Integer userId){
+					User user=userServ.findUserbyID(userId);
+					
+					return new ResponseEntity<>(user.getPassengers(), HttpStatus.OK);
+					
+					
 				}
 
 }
