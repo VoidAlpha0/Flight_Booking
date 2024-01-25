@@ -92,9 +92,11 @@ public class UserController {
 					 
 					
 					User user=userServ.findUserbyID(userId);
-					passengerdao.save(passenger);
+					//passenger.setUser(user);
 					user.addPassenger(passenger);
-					userdao.save(user);
+					//passenger.setUser(user);
+					userdao.save(user);				
+					
 					
 					return new ResponseEntity<>(passenger, HttpStatus.OK);
 					

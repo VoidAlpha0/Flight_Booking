@@ -1,11 +1,16 @@
 package com.Airbus.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Location {
@@ -21,7 +26,11 @@ public class Location {
 	@Column(nullable = false)
 	private String country;
 	
+	@OneToMany(mappedBy = "flightsource")
+	private Set<Flight> Flightsrc=new HashSet<Flight>();
 	
+	@OneToMany(mappedBy = "flightdestination")
+	private Set<Flight> Flightdst=new HashSet<Flight>();
 	
 	public Integer getLocId() {
 		return locId;

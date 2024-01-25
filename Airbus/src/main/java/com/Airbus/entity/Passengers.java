@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.OneToOne;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
 
 @Entity
 public class Passengers {
@@ -27,10 +29,23 @@ public class Passengers {
 	private Ticket ticket;
 	
 	@ManyToOne
-    @JoinColumn( insertable = false, updatable = false)
+    @JoinColumn
+    @Transient
     private User user;
 	
 	
+	public Ticket getTicket() {
+		return ticket;
+	}
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Integer getPassId() {
 		return passId;
 	}
