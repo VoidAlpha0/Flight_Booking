@@ -42,7 +42,8 @@ useremail:any;
         if (incomingpassword === formdata.passwd) {
           console.log('correct pass');
           alert('Login successfull');
-          this.router.navigate(['/user-home',userid]);
+          localStorage.setItem("userId",data.userId);
+          this.router.navigate(['/user-home']);
         } else {
           console.log('wrong pass');
           alert('Wrong Password . Enter correct password');

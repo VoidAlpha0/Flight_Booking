@@ -15,13 +15,26 @@ public user: any;
 constructor(private router: Router, private route: ActivatedRoute, private appService: UserServiceService) {}
 
 ngOnInit(): void {
-  let userId = this.route.snapshot.paramMap.get('userId');
+  let userId = localStorage.getItem("userId");
   this.userId = userId;
   this.getUser(userId);
 }
 
 logout() {
   this.router.navigate(['/user-login']);
+}
+
+gotoBookflight(){
+  localStorage.setItem("userId",this.userId);
+  this.router.navigate(['/user-viewFlights']);
+}
+
+gotoUpdate(){
+  this.router.navigate(['user-update']);
+}
+
+gotoAddPassenger(){
+  this.router.navigate(['/user-addPassenger'],this.userId);
 }
 
 

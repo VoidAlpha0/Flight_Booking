@@ -2,6 +2,7 @@ package com.Airbus.controllers;
 
 import java.util.Optional;
 import java.util.Set;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,10 @@ import com.Airbus.services.UserService;
 
 import com.Airbus.entity.User;
 import com.Airbus.entity.Passengers;
+import com.Airbus.entity.Flight;
 import com.Airbus.Dao.UserDao;
 import com.Airbus.Dao.PassengerDao;
+import com.Airbus.Dao.FlightDao;
 @RestController
 @RequestMapping("/User")
 public class UserController {
@@ -30,6 +33,9 @@ public class UserController {
 	
 	@Autowired
 	PassengerDao passengerdao;
+	
+	@Autowired
+	FlightDao flightdao;
 	
 	public UserController(UserService service) {
 		super();
@@ -138,6 +144,13 @@ public class UserController {
 					return new ResponseEntity<>(user.getPassengers(), HttpStatus.OK);
 					
 					
+				}
+				
+				@GetMapping("/viewFlights")
+				public ResponseEntity<List<Flight>> getFlights(){
+					List<Flight> flights= flightdao.findAll();
+					
+					return new ResponseEntity<>(flights, HttpStatus.OK);
 				}
 
 }

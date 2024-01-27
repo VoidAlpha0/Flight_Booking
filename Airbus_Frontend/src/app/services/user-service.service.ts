@@ -35,5 +35,13 @@ export class UserServiceService {
     return result;
   }
 
+  public findallFlights():Observable<any>{
+    var result: Observable<any> = this.http.get<any>(
+      `${this.apiServerUrl}/User/viewFlights`
+    );
+    console.log('this is result' + result);
+    return result;
+  }
+
 
 }

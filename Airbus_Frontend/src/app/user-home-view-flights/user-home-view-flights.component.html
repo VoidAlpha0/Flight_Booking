@@ -1,0 +1,35 @@
+<div>
+    <h3>List of available flights</h3>
+
+<table class="table"  style="margin: 0px; border: 1px solid rgb(216, 211, 211);">
+    <thead>
+      <tr>
+        <th>Flight ID</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th> Take- off Time</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of flights">
+        <td>{{flight.flightId}}</td>
+        <td>Terminal:{{flight.flightsource.terminal}}<br>
+            City:{{flight.flightsource.city}}<br>
+            Country:{{flight.flightsource.country}}<br>
+        </td>
+        <td>Terminal:{{flight.flightdestination.terminal}}<br>
+            City:{{flight.flightdestination.city}}<br>
+            Country:{{flight.flightdestination.country}}<br></td>
+        <td>{{flight.flightdate}}</td>
+        <td>
+            <button type="button" class="btn btn-secondary" (click)="gotoSeats()">Book ticket</button>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+  <br>
+  <button class="btn btn-warning" routerLink="gotoUserhome()">Go Back</button>
+</div>

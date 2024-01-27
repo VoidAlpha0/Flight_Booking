@@ -73,10 +73,10 @@ FlightService flserv;
 			for(Optional<Ticket> t: tempseats) {
 				Ticket temp= t.get();
 				actualPass.setTicket(temp);
-				//flight.addTicket(temp);
+																//flight.addTicket(temp);
 				transact(actualPass,flight,temp);
-				//passdao.save(actualPass);
-				//flightdao.save(flight);
+																//passdao.save(actualPass);
+																//flightdao.save(flight);
 				tempseats.remove(t);
 				break;
 			}

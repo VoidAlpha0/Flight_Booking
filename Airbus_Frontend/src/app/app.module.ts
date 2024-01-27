@@ -10,6 +10,9 @@ import { UserHomeComponent } from './user-home/user-home.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserHomeViewFlightsComponent } from './user-home-view-flights/user-home-view-flights.component';
+import { UserHomeUpdateUserComponent } from './user-home-update-user/user-home-update-user.component';
+import { UserHomeAddPassComponent } from './user-home-add-pass/user-home-add-pass.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     UserLoginComponent,
     UserRegisterComponent,
     UserHomeComponent,
+    UserHomeViewFlightsComponent,
+    UserHomeUpdateUserComponent,
+    UserHomeAddPassComponent,
     
     
   ],
@@ -29,7 +35,10 @@ import { HttpClientModule } from '@angular/common/http';
       {path : 'admin-login', component : AdminLoginComponent},
       {path : 'user-login', component : UserLoginComponent},
       {path : 'user-register', component : UserRegisterComponent},
-      {path:'user-home/:userId', component:UserHomeComponent}
+      {path:'user-home', component:UserHomeComponent},
+      {path:'user-viewFlights',component:UserHomeViewFlightsComponent},
+      {path:'user-update',component:UserHomeUpdateUserComponent},
+      {path:'user-addPassenger',component:UserHomeUpdateUserComponent}
     ]),
 
     FormsModule,

@@ -16,6 +16,40 @@
       </div>
     </div>  
 
+    <div class="opacity jumbotron m-2 p-3">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card bg2">
+            <div class="card-body">
+              <h3 class="card-title">Book flight</h3>
+              <p class="card-text">User can book a flight from here.</p>
+              <button class="btn btn-danger" (click)="gotoBookflight()">Book a flight!</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card bg2">
+            <div class="card-body">
+              <h3 class="card-title">Add Passengers</h3>
+              <p class="card-text">User can add passengers here.</p>
+              <button class="btn btn-danger" (click)="gotoAddPassenger()">Add Passenger</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card bg2">
+            <div class="card-body">
+              <h3 class="card-title">Update User info</h3>
+              <p class="card-text">User can update their information here.</p>
+              <button class="btn btn-danger" (click)="gotoUpdate()">Update Info</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+
           <!--<div *ngIf="user">
             <h3><b>Welcome to BlackPoolBus! <span class="text-danger"><i>{{user.userName}}</i></span></b></h3>
             <button class="btn btn-danger float-right" (click)="logout()">Logout</button>
