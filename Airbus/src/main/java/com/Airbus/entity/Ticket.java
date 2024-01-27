@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Ticket {
@@ -23,5 +24,14 @@ public class Ticket {
 	
 	private String seatno;
 	//private String userId;
+	
+
+	public String getSeatno() {
+		return seatno;
+	}
+
+	public void setSeatno(String seatno) {
+		this.seatno = seatno;
+	}
 
 }
