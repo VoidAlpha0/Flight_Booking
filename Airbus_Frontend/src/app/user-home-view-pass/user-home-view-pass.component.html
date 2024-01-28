@@ -1,0 +1,32 @@
+gyf
+<div>
+    <h3>List of Passengers under you</h3>
+
+<table class="table"  style="margin: 0px; border: 1px solid rgb(216, 211, 211);">
+    <thead>
+      <tr>
+        <th>Passenger ID</th>
+        <th>Passenger Name</th>
+        <th>Passenger DOB</th>
+        <th> Ticket status</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let passenger of passengers">
+        <td>{{passenger.passId}}</td>
+        <td>{{passenger.passname}}<br>
+        </td>
+        <td>{{passenger.passDOB}}<br></td>
+        <td>{{passenger.ticket}}</td>
+        <td>
+            <button type="button" class="btn btn-secondary" (click)="deletePassenger()">Delete Passenger</button>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+  <br>
+  <button class="btn btn-warning" routerLink="gotoUserhome()">Go Back</button>
+</div>

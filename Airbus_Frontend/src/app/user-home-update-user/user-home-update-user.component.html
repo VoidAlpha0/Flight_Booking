@@ -1,1 +1,62 @@
-<p>user-home-update-user works!</p>
+
+<div class="col-sm-3 bg-light box pt-5">
+    <h4 class="text-center">User Login</h4>
+        <form
+        #userlogin="ngForm"
+        (ngSubmit)="onClickSubmit(userlogin.value, userlogin)">
+            <div class="hi">
+                <div class="for">
+                    <div class="form-group">
+                        <br />
+
+                            <input
+                            type="text"
+                            name="username"
+                            class="form-control"
+                            placeholder="username"
+                            ngModel
+                            />
+                    </div>
+                </div>
+
+                <div class="for">
+                    <div class="form-group">
+                        <br />
+
+                            <input
+                            type="text"
+                            name="userphonenumber"
+                            class="form-control"
+                            placeholder="phonenumber"
+                            ngModel
+                            />
+                    </div>
+                </div>
+
+                       <br />
+                <div class="for">
+                    <div class="from-group">
+                            <input
+                            type="password"
+                            name="passwd"
+                            class="form-control"
+                            placeholder="password"
+                            ngModel
+                            />
+                    </div>
+                </div>
+                        <br />
+
+                <div class="form-group">
+                    <button class="btn btn-success m-2" type="submit" value="submit">
+                    Update
+                    </button>
+                    <button class="btn btn-primary" (click)="goBack()">Go back </button>
+                </div>
+            </div>
+        </form>
+    
+    <br>
+
+    
+  </div>

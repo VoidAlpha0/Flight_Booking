@@ -30,11 +30,18 @@ gotoBookflight(){
 }
 
 gotoUpdate(){
+  localStorage.setItem("userId",this.userId);
   this.router.navigate(['user-update']);
 }
 
 gotoAddPassenger(){
-  this.router.navigate(['/user-addPassenger'],this.userId);
+  localStorage.setItem("userId",this.userId);
+  this.router.navigate(['/user-addPassenger']);
+}
+
+gotoviewPass(){
+  localStorage.setItem("userId",this.userId);
+  this.router.navigate(['/user-viewPass']);
 }
 
 

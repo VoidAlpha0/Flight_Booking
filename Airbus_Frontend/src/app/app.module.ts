@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserHomeViewFlightsComponent } from './user-home-view-flights/user-home-view-flights.component';
 import { UserHomeUpdateUserComponent } from './user-home-update-user/user-home-update-user.component';
 import { UserHomeAddPassComponent } from './user-home-add-pass/user-home-add-pass.component';
+import { UserHomeViewPassComponent } from './user-home-view-pass/user-home-view-pass.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UserHomeAddPassComponent } from './user-home-add-pass/user-home-add-pas
     UserHomeViewFlightsComponent,
     UserHomeUpdateUserComponent,
     UserHomeAddPassComponent,
+    UserHomeViewPassComponent,
     
     
   ],
@@ -38,7 +40,8 @@ import { UserHomeAddPassComponent } from './user-home-add-pass/user-home-add-pas
       {path:'user-home', component:UserHomeComponent},
       {path:'user-viewFlights',component:UserHomeViewFlightsComponent},
       {path:'user-update',component:UserHomeUpdateUserComponent},
-      {path:'user-addPassenger',component:UserHomeUpdateUserComponent}
+      {path:'user-addPassenger',component:UserHomeAddPassComponent},
+      {path:'user-viewPass',component:UserHomeViewPassComponent}
     ]),
 
     FormsModule,

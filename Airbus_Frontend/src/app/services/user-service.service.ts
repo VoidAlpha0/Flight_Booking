@@ -35,10 +35,39 @@ export class UserServiceService {
     return result;
   }
 
+  public updateUser(editbody:any,userId:any): Observable<any> {
+    //var email = user.email;
+    console.log(userId);
+    var result: Observable<any> = this.http.put<any>(
+      `${this.apiServerUrl}/User/update/${userId}`,
+    editbody);
+    console.log('this is result' + result);
+    return result;
+  }
+
   public findallFlights():Observable<any>{
     var result: Observable<any> = this.http.get<any>(
       `${this.apiServerUrl}/User/viewFlights`
     );
+    console.log('this is result' + result);
+    return result;
+  }
+
+  public createPassenger(passengerbody:any, userId:any): Observable<any> {
+    //var email = user.email;
+    console.log(userId);
+    var result: Observable<any> = this.http.post<any>(
+      `${this.apiServerUrl}/User/createPass/${userId}`,
+    passengerbody);
+    console.log('this is result' + result);
+    return result;
+  }
+
+  public findPassengers(userId:any): Observable<any> {
+    //var email = user.email;
+    console.log(userId);
+    var result: Observable<any> = this.http.get<any>(
+      `${this.apiServerUrl}/User/getPass/${userId}`);
     console.log('this is result' + result);
     return result;
   }
