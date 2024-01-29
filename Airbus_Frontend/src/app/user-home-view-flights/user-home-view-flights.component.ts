@@ -21,7 +21,8 @@ export class UserHomeViewFlightsComponent {
   }
 
   gotoSeats(){
-
+    localStorage.setItem("userId",this.userId);
+    this.router.navigate(['/user-book-seats']);
 
   }
 

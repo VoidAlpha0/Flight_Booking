@@ -1,0 +1,40 @@
+/* seat-layout.component.css */
+.seat-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .seat-column {
+    width: 22%;
+    margin-bottom: 10px;
+  }
+  
+  .seat {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+  }
+  
+  .unbooked {
+    background-color: #e0e0e0;
+  }
+  
+  .booked {
+    background-color: #ff8888;
+    cursor: not-allowed;
+  }
+  
+  .selected {
+    background-color: #88ff88 !important; /* Add !important to ensure the background color is applied */
+  }
+  
+  .window-seat {
+    background-color: #b0e0e6; /* Light blue for window seats */
+  }
+  
+  .aisle-seat {
+    background-color: #f5f5dc; /* Beige for aisle seats */
+  }
+  

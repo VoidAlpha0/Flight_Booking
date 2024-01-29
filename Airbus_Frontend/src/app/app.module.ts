@@ -14,6 +14,7 @@ import { UserHomeViewFlightsComponent } from './user-home-view-flights/user-home
 import { UserHomeUpdateUserComponent } from './user-home-update-user/user-home-update-user.component';
 import { UserHomeAddPassComponent } from './user-home-add-pass/user-home-add-pass.component';
 import { UserHomeViewPassComponent } from './user-home-view-pass/user-home-view-pass.component';
+import { BookSeatsComponent } from './book-seats/book-seats.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UserHomeViewPassComponent } from './user-home-view-pass/user-home-view-
     UserHomeUpdateUserComponent,
     UserHomeAddPassComponent,
     UserHomeViewPassComponent,
+    BookSeatsComponent,
     
     
   ],
@@ -41,7 +43,8 @@ import { UserHomeViewPassComponent } from './user-home-view-pass/user-home-view-
       {path:'user-viewFlights',component:UserHomeViewFlightsComponent},
       {path:'user-update',component:UserHomeUpdateUserComponent},
       {path:'user-addPassenger',component:UserHomeAddPassComponent},
-      {path:'user-viewPass',component:UserHomeViewPassComponent}
+      {path:'user-viewPass',component:UserHomeViewPassComponent},
+      {path:'user-book-seats',component:BookSeatsComponent}
     ]),
 
     FormsModule,

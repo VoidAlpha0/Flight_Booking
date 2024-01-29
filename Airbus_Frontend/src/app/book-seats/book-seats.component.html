@@ -1,0 +1,58 @@
+<!-- seat-layout.component.html -->
+<div>
+    <h3>Seat Layout</h3>
+    <div class="seat-row" *ngFor="let row of generateSeatLayout(); let i = index">
+      <div *ngFor="let seat of row; let j = index" class="seat-column">
+        <button
+          class="seat"
+          [ngClass]="{
+            'unbooked': !seat.isBooked && !seat.isSelected,
+            'booked': seat.isBooked,
+            'selected': seat.isSelected,
+            'window-seat': j === 0 || j === row.length - 1,
+            'aisle-seat': j > 0 && j < row.length - 1
+          }"
+          [disabled]="seat.isBooked"
+          (click)="selectSeat(seat)"
+        >
+          {{ seat.seatNo }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <h3>Select Passengers to book seats</h3>
+    <table class="table" style="margin: 0px; border: 1px solid rgb(216, 211, 211);">
+      <thead>
+        <tr>
+          <th>Passenger ID</th>
+          <th>Passenger Name</th>
+          <th>Passenger DOB</th>
+          <th>Select/Unselect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let passenger of passengers">
+          <td>{{ passenger.passId }}</td>
+          <td>{{ passenger.passname }}</td>
+          <td>{{ passenger.passDOB }}</td>
+          <td>
+            <button
+            type="button"
+            class="btn btn-secondary"
+            [class.selected]="passenger.isSelected"
+            [disabled]="canSelectPassenger(passenger)"
+            (click)="selectPassenger(passenger)"
+            >
+             {{ passenger.isSelected ? 'Unselect' : 'Select' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <button class="btn btn-warning" routerLink="gotoUserhome()">Go Back</button>
+  </div>
+  
