@@ -73,4 +73,20 @@ export class UserServiceService {
   }
 
 
+  public getbookedSeats(flightId:any): Observable<any> {
+   console.log(flightId);
+    var result: Observable<any> = this.http.get<any>(
+      `${this.apiServerUrl}/Booking/getTickets/${flightId}`);
+    console.log('this is result' + result);
+    return result;
+  }
+
+  public bookTickets(combinedData:any,flightId:any):Observable<any> {
+    console.log(combinedData);
+     var result: Observable<any> = this.http.post<any>(
+       `${this.apiServerUrl}/Booking/ticketgen/${flightId}`, combinedData);
+     console.log('this is result' + result);
+     return result;
+   }
+ 
 }

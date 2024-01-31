@@ -20,8 +20,9 @@ export class UserHomeViewFlightsComponent {
     this.viewFlights();
   }
 
-  gotoSeats(){
+  gotoSeats(flightId:any){
     localStorage.setItem("userId",this.userId);
+    localStorage.setItem("flightId",flightId);
     this.router.navigate(['/user-book-seats']);
 
   }

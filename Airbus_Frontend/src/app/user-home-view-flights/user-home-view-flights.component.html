@@ -23,7 +23,7 @@
             Country:{{flight.flightdestination.country}}<br></td>
         <td>{{flight.flightdate}}</td>
         <td>
-            <button type="button" class="btn btn-secondary" (click)="gotoSeats()">Book ticket</button>
+            <button type="button" class="btn btn-secondary" (click)="gotoSeats(flight.flightId)">Book ticket</button>
         </td>
 
       </tr>
