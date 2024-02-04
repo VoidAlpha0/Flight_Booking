@@ -72,6 +72,23 @@ export class UserServiceService {
     return result;
   }
 
+  public findPassenger(passId:any): Observable<any> {
+    //var email = user.email;
+    console.log(passId);
+    var result: Observable<any> = this.http.get<any>(
+      `${this.apiServerUrl}/User/getPassenger/${passId}`);
+    console.log('this is result' + result);
+    return result;
+  }
+
+  public deletePassenger(userId:any,passId:any){
+    console.log(userId);
+    var result: Observable<any> = this.http.delete<any>(
+      `${this.apiServerUrl}/User/delete/${userId}/${passId}`);
+    console.log('this is result' + result);
+    return result;
+  }
+
 
   public getbookedSeats(flightId:any): Observable<any> {
    console.log(flightId);
@@ -88,5 +105,22 @@ export class UserServiceService {
      console.log('this is result' + result);
      return result;
    }
+
+   public getTickets(passId:any): Observable<any> {
+    console.log(passId);
+     var result: Observable<any> = this.http.get<any>(
+       `${this.apiServerUrl}/Booking/getPasses/${passId}`);
+     console.log('this is result' + result);
+     return result;
+   }
+
+   public getTicketFlight(ticketId:any):Observable<any> {
+    console.log(ticketId);
+     var result: Observable<any> = this.http.get<any>(
+       `${this.apiServerUrl}/Booking/getFlight/${ticketId}`);
+     console.log('this is result' + result);
+     return result;
+   }
+
  
 }

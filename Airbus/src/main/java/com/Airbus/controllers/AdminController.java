@@ -69,14 +69,7 @@ public class AdminController {
 		return ResponseEntity.ok(admin);
 	}
 /************************************* Admin Operations( adding flight, location etc) *****************************************/	
-	@PostMapping("/addLoc")
-	public ResponseEntity<Location> createLocation(@RequestBody Location location){
-		
-		locserv.addLocation(location);
-		return new ResponseEntity<>(location, HttpStatus.CREATED);
-		
-		
-	}
+  
 	
 	@PostMapping("/addFlight/{locid1}/{locid2}")
 	public ResponseEntity<Flight> createFlight(@RequestBody Flight flight,
@@ -94,6 +87,16 @@ public class AdminController {
 	}
 	
 	
+	@PostMapping("/addLoc")
+	public ResponseEntity<Location> createLocation(@RequestBody Location location){
+		
+		locserv.addLocation(location);
+		return new ResponseEntity<>(location, HttpStatus.CREATED);
+
+		
+	}
 	
+	
+
 	
 }

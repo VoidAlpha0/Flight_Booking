@@ -1,4 +1,4 @@
-gyf
+
 <div>
     <h3>List of Passengers under you</h3>
 
@@ -9,6 +9,8 @@ gyf
         <th>Passenger Name</th>
         <th>Passenger DOB</th>
         <th> Ticket status</th>
+        <th> Delete Passenger</th>
+        <th> Show Tickets</th>
         <th> </th>
       </tr>
     </thead>
@@ -18,9 +20,18 @@ gyf
         <td>{{passenger.passname}}<br>
         </td>
         <td>{{passenger.passDOB}}<br></td>
-        <td>{{passenger.ticket}}</td>
+        <td><span *ngIf="passenger.tickets.length>0; else noTicket">Yes</span>
+            <ng-template #noTicket>No</ng-template></td>
         <td>
-            <button type="button" class="btn btn-secondary" (click)="deletePassenger()">Delete Passenger</button>
+            <button type="button" class="btn btn-secondary" (click)="deletePassenger(passenger.passId)"
+                        [disabled]="passenger.tickets && passenger.tickets.length > 0">Delete Passenger</button>
+
+        </td>
+
+        <td>
+            <button type="button" class="btn btn-secondary" (click)="showTickets(passenger.passId)"
+                        [disabled]="!passenger.tickets && !(passenger.tickets.length > 0)">Show Tickets</button>
+
         </td>
 
       </tr>

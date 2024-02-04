@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Set;
+import java.util.List;
 import java.util.Optional;
 import com.Airbus.Dao.*;
 import javax.transaction.Transactional;
@@ -46,12 +47,18 @@ FlightService flserv;
 	}
 	@Transactional
 	public void transact(Passengers p, Flight f, Ticket temp) {
+		
 		passdao.save(p);
-		Ticket actualTicket= p.getTicket();
-		f.addPassenger(p);
+		Ticket actualTicket = getLastElement(p.getTickets());
+		//f.addPassenger(p);
 		f.addTicket(actualTicket);
 	    flightdao.save(f);
 	}
+	
+	private static <T> T getLastElement(Set<T> set) {
+        // Convert the Set to an array and get the last element
+        return set.isEmpty() ? null : set.toArray((T[]) new Object[0])[set.size() - 1];
+    }
 	
 	//Book the ticket
 	@PostMapping("/ticketgen/{flightid}")
@@ -73,7 +80,7 @@ FlightService flserv;
 			
 			for(Optional<Ticket> t: tempseats) {
 				Ticket temp= t.get();
-				actualPass.setTicket(temp);
+				actualPass.addTicket(temp);
 																//flight.addTicket(temp);
 				transact(actualPass,flight,temp);
 																//passdao.save(actualPass);
@@ -101,5 +108,43 @@ FlightService flserv;
 		
 		
 	}
+	
+	
+	@GetMapping("/getPasses/{passid}")
+	public ResponseEntity<Set<Ticket>> getPasses(
+			@PathVariable("passid") Integer passId){
+		Passengers actualPass=passdao.getById(passId);
+		Set<Ticket> tickets=actualPass.getTickets();
+		
+		return new ResponseEntity<>(tickets, HttpStatus.OK);
+		
+		
+	}
+	
+	@GetMapping("/getFlight/{ticketid}")
+	public ResponseEntity<Flight> getFlight(
+			@PathVariable("ticketid") Integer ticketId){
+		Ticket ticket=ticketdao.getById(ticketId);
+		List<Flight> flights= flightdao.findAll();
+	    Flight junkflight= new Flight();
+		for(Flight f: flights) {
+			Set<Ticket> temptickets= f.getTickets();
+			for(Ticket t:temptickets) {
+				if(t.getTicketId().equals(ticket.getTicketId())) {
+					Flight flight= f;
+					return new ResponseEntity<>(flight, HttpStatus.OK);
+					
+				}
+				else continue;
+			}
+		}
+		
+		return new ResponseEntity<>(junkflight, HttpStatus.OK);
+		
+		
+	}
+	
+	
+	
 	
 }

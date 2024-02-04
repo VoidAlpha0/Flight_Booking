@@ -127,8 +127,8 @@ public class UserController {
 					User user=userServ.findUserbyID(userId);
 					Optional<Passengers> temppass= passengerdao.findById(passId);
 					Passengers passenger= temppass.get();
-					passengerdao.save(passenger);
-					user.addPassenger(passenger);
+					user.removePassenger(passenger);
+					passengerdao.delete(passenger);
 					userdao.save(user);
 					
 					return new ResponseEntity<>(passenger, HttpStatus.OK);
@@ -142,6 +142,16 @@ public class UserController {
 					User user=userServ.findUserbyID(userId);
 					
 					return new ResponseEntity<>(user.getPassengers(), HttpStatus.OK);
+					
+					
+				}
+				
+				@GetMapping("/getPassenger/{passid}")//get passengers under a user
+				public ResponseEntity<Passengers> getPassenger(@PathVariable("passid") Integer passId){
+					Optional<Passengers> temppassenger=passengerdao.findById(passId);
+					Passengers passenger=temppassenger.get();
+					
+					return new ResponseEntity<>(passenger, HttpStatus.OK);
 					
 					
 				}

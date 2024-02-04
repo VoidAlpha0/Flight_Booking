@@ -1,0 +1,109 @@
+<div>
+    <h3>List of Tickets</h3>
+
+<table class="table"  style="margin: 0px; border: 1px solid rgb(216, 211, 211);">
+    <thead>
+      <tr>
+        <th>Ticket ID</th>
+        <th>Boarding Pass</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of tickets">
+        <td>{{ticket.ticketId}}</td>
+       
+        <td><button type="button" class="btn btn-info" (click)="openBoardingPassModal(ticket)">
+            View Boarding Pass
+          </button></td>
+        
+
+        
+
+      </tr>
+
+    </tbody>
+  </table>
+  <br>
+  <button class="btn btn-warning" routerLink="gotoUserhome()">Go Back</button>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="boardingPassModal" tabindex="-1" role="dialog" aria-labelledby="boardingPassModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="boardingPassModalLabel">Boarding Pass</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="box" *ngIf="flight">
+                <ul class="left">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                
+                <ul class="right">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <div class="ticket">
+                  <span class="airline">Airbus</span>
+                  <span class="airline airlineslip">Airbus</span>
+                  <span class="boarding">Boarding pass</span>
+                  <div class="content">
+                    <span class="jfk">{{flight.flightsource.city}}</span>
+                    <span class="plane"><svg clip-rule="evenodd" fill-rule="evenodd" height="60" width="60" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><g stroke="#222"><line fill="none" stroke-linecap="round" stroke-width="30" x1="300" x2="55" y1="390" y2="390"/><path d="M98 325c-9 10 10 16 25 6l311-156c24-17 35-25 42-50 2-15-46-11-78-7-15 1-34 10-42 16l-56 35 1-1-169-31c-14-3-24-5-37-1-10 5-18 10-27 18l122 72c4 3 5 7 1 9l-44 27-75-15c-10-2-18-4-28 0-8 4-14 9-20 15l74 63z" fill="#222" stroke-linejoin="round" stroke-width="10"/></g></svg></span>
+                    <span class="sfo">{{flight.flightdestination.city}}</span>
+                    
+                    <span class="jfk jfkslip">{{flight.flightsource.city}}</span>
+                    <span class="plane planeslip"><svg clip-rule="evenodd" fill-rule="evenodd" height="50" width="50" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><g stroke="#222"><line fill="none" stroke-linecap="round" stroke-width="30" x1="300" x2="55" y1="390" y2="390"/><path d="M98 325c-9 10 10 16 25 6l311-156c24-17 35-25 42-50 2-15-46-11-78-7-15 1-34 10-42 16l-56 35 1-1-169-31c-14-3-24-5-37-1-10 5-18 10-27 18l122 72c4 3 5 7 1 9l-44 27-75-15c-10-2-18-4-28 0-8 4-14 9-20 15l74 63z" fill="#222" stroke-linejoin="round" stroke-width="10"/></g></svg></span>
+                    <span class="sfo sfoslip">{{flight.flightdestination.city}}</span>
+                    <div class="sub-content">
+                      <span class="watermark">Airbus</span>
+                      <span class="name">PASSENGER NAME<br><span>{{passenger.passname}}</span></span>
+                      <span class="flight">FLIGHT N&deg;<br><span>{{flight.flightId}}</span></span>
+                      <span class="gate">Terminal<br><span>{{flight.flightsource.terminal}}</span></span>
+                      <span class="seat">SEAT<br><span>{{tickt.seatno}}</span></span>
+                      <span class="boardingtime">BOARDING TIME<br><span>{{flight.flightdate}}</span></span>
+                          
+                       <span class="flight flightslip">FLIGHT N&deg;<br><span>{{flight.flightId}}</span></span>
+                        <span class="seat seatslip">SEAT<br><span>{{tickt.seatno}}</span></span>
+                       <span class="name nameslip">PASSENGER NAME<br><span>{{passenger.passname}}</span></span>
+                    </div>
+                  </div>
+                  <div class="barcode"></div>
+                  <div class="barcode slip"></div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>

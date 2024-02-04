@@ -21,9 +21,23 @@ export class UserHomeViewPassComponent {
   }
 
 
-  deletePassenger(){
+  deletePassenger(passId:any){
+    this.appService.deletePassenger(this.userId,passId).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.viewPassengers(this.userId);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
 
-    
+  }
+
+  showTickets(passId:any){
+    localStorage.setItem("userId",this.userId);
+    localStorage.setItem("passId",passId);
+    this.router.navigate(['user-show-tickets']);
   }
 
   public viewPassengers(userid:any): void {

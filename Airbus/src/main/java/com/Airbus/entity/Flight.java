@@ -34,9 +34,6 @@ public class Flight {
 	private String flightdate;
 	
 	/******************************JOINS*************************************/
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="flight_passengers", joinColumns= {@JoinColumn(name="flightId")}, inverseJoinColumns= {@JoinColumn(name="passId")})
-	private Set<Passengers>passengers=new HashSet<Passengers>();
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="flight_tickets", joinColumns= {@JoinColumn(name="flightId")}, inverseJoinColumns= {@JoinColumn(name="ticketId")})
@@ -47,20 +44,7 @@ public class Flight {
 	public String getFlightdate() {
 		return flightdate;
 	}
-	public Set<Passengers> getPassengers() {
-		return passengers;
-	}
-	public void setPassengers(Set<Passengers> passengers) {
-		this.passengers = passengers;
-	}
 	
-	public void addPassenger(Passengers passenger) {
-		this.passengers.add(passenger);
-		}
-	
-	public void removePassenger(Passengers passenger) {
-		this.passengers.remove(passenger);
-	}
 	public Set<Ticket> getTickets() {
 		return tickets;
 	}

@@ -185,7 +185,7 @@ seatsBooked:any=[];
 
     }
 
-    this.appService.bookTickets(combinedData,this.flightId).subscribe(
+   else{this.appService.bookTickets(combinedData,this.flightId).subscribe(
       (response: any) => {
        console.table(response);
        localStorage.setItem("userId",this.userId);
@@ -197,7 +197,7 @@ seatsBooked:any=[];
       }
 
     );
-
+    }
   }
 
 }

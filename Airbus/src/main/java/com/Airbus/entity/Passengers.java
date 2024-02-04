@@ -1,5 +1,9 @@
 package com.Airbus.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.LinkedHashSet;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,8 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
@@ -24,9 +30,9 @@ public class Passengers {
 	private String passDOB;
 	//private String userId;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ticket", referencedColumnName = "ticketId")
-	private Ticket ticket;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="passenger_tickets", joinColumns= {@JoinColumn(name="passId")}, inverseJoinColumns= {@JoinColumn(name="ticketId")})
+	private Set<Ticket>tickets=new LinkedHashSet<Ticket>();
 	
 	@ManyToOne
     @JoinColumn
@@ -34,12 +40,6 @@ public class Passengers {
     private User user;
 	
 	
-	public Ticket getTicket() {
-		return ticket;
-	}
-	public void setTicket(Ticket ticket) {
-		this.ticket = ticket;
-	}
 	public User getUser() {
 		return user;
 	}
@@ -65,6 +65,20 @@ public class Passengers {
 		this.passDOB = passDOB;
 	}
 	
+	public Set<Ticket> getTickets() {
+		return tickets;
+	}
+	public void setTickets(Set<Ticket> tickets) {
+		this.tickets = tickets;
+	}
+	
+	public void addTicket(Ticket ticket) {
+		this.tickets.add(ticket);
+		}
+	
+	public void removeTicket(Ticket ticket) {
+		this.tickets.remove(ticket);
+	}
 	
 	
 	
