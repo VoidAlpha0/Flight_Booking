@@ -83,7 +83,34 @@ export class UserHomeShowTicketsComponent {
       // Open the modal
       $('#boardingPassModal').modal('show');
     }
+
+    cancelTicket(ticket:any):void{
+      const confirmation = window.confirm('Are you sure you want to cancel this ticket?');
+
+    if (confirmation) {
+        this.tickt = ticket;
+        const ticketId = ticket.ticketId;
+     
+        this.appService.CancelTicket(ticketId).subscribe(
+          (response: any) => {
+            this.viewTickets(this.passId);
+            console.log(response);
+          },
+          (error: HttpErrorResponse) => {
+            alert(error.message);
+          }
+        );
+
+        
+    // Implement cancel ticket
+    // Call your cancellation logic here
+      } 
+  
+  else {
+    // User clicked "Cancel" in the confirmation dialog
+    // Do nothing or provide additional feedback to the user
+  }
     
   }
 
-
+}

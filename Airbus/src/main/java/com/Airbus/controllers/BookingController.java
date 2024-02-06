@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +38,9 @@ FlightService flserv;
 	
 	@Autowired
 	TicketDao ticketdao;
+	
+	@Autowired
+	UserDao userdao;
 	
 
 	
@@ -93,6 +97,50 @@ FlightService flserv;
 		
 		 return new ResponseEntity<>(flight, HttpStatus.OK);
 		
+	}
+	
+	@DeleteMapping("/delete/{ticketid}")//cancel ticket
+	public ResponseEntity<Ticket> deletePassenger(@PathVariable("ticketid") Integer ticketId){
+		
+		 
+		Ticket ticket=ticketdao.getById(ticketId);
+		List<Flight> flights= flightdao.findAll();
+		List<Passengers> passengers=passdao.findAll();
+	    //Flight junkflight= new Flight();
+		for(Flight f: flights) {//get flight
+			Set<Ticket> temptickets= f.getTickets();
+			for(Ticket t:temptickets) {
+				if(t.getTicketId().equals(ticket.getTicketId())) {
+					Flight flight= f;
+					f.removeTicket(ticket);
+					flightdao.save(f);
+				    break;
+					
+				}
+				else continue;
+			}
+		}
+		
+		for(Passengers p: passengers) {//get flight
+			Set<Ticket> temptickets= p.getTickets();
+			for(Ticket t:temptickets) {
+				if(t.getTicketId().equals(ticket.getTicketId())) {
+					Passengers pass= p;
+					p.removeTicket(ticket);
+					passdao.save(p);
+					ticketdao.delete(ticket);
+					return new ResponseEntity<>(new Ticket(), HttpStatus.OK);
+					
+				}
+				else continue;
+			}
+		}
+		
+		
+		return new ResponseEntity<>(new Ticket(), HttpStatus.EXPECTATION_FAILED);
+		
+           // return new ItemNotFoundException("Employee with id" + id + " is not Found.Pls Give another Id!");
+
 	}
 	
 	

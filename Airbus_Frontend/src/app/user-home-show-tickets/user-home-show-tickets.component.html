@@ -6,7 +6,7 @@
       <tr>
         <th>Ticket ID</th>
         <th>Boarding Pass</th>
-        <th> </th>
+        <th>Cancel Ticket</th>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +17,9 @@
             View Boarding Pass
           </button></td>
         
-
+          <td><button type="button" class="btn btn-danger" (click)="cancelTicket(ticket)">
+            Cancel Ticket
+          </button></td>
         
 
       </tr>

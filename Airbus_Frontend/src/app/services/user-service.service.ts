@@ -122,5 +122,13 @@ export class UserServiceService {
      return result;
    }
 
+   public CancelTicket(ticketId:any):Observable<any> {
+    console.log(ticketId);
+     var result: Observable<any> = this.http.delete<any>(
+       `${this.apiServerUrl}/Booking/delete/${ticketId}`);
+     console.log('this is result' + result);
+     return result;
+   }
+
  
 }
