@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label for="adminemail">Login Uname</label>
                     <input type="text"
-                        [class.is-invalid]="loginForm?.get('adminemail')?.invalid && loginForm?.get('adminemail')?.touched"
+                        [class.is-invalid]="loginForm.get('adminemail')?.invalid && loginForm.get('adminemail')?.touched"
                         class="form-control" formControlName="adminemail" placeholder="Enter Admin Uname Here...">
                 </div>
                 <div *ngIf="loginForm?.get('adminpassword')?.invalid && loginForm?.get('adminpassword')?.touched">
@@ -43,11 +43,11 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password"
-                        [class.is-invalid]="loginForm?.get('adminpassword')?.invalid && loginForm?.get('adminpassword')?.touched"
+                        [class.is-invalid]="loginForm.get('adminpassword')?.invalid && loginForm.get('adminpassword')?.touched"
                         formControlName="adminpassword" class="form-control" placeholder="Enter Password Here...">
                 </div>
                 <div class="form-group">
-                    <input [disabled]="!loginForm?.valid" type="submit" class="btn btn-danger" style="width: 100%;"
+                    <input [disabled]="!loginForm.valid" type="submit" class="btn btn-danger" style="width: 100%;"
                         value="Log In"><br><br>
                 </div>
             </form>

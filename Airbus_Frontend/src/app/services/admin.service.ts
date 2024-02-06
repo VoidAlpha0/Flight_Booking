@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ErrorHandler, Injectable } from '@angular/core';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,14 @@ export class AdminService {
         JSON.stringify(admin),
         this.options
       )
+  }
+  addLocation(location: Partial<{ terminal: null; city: null; state: null; }>): Observable<Object>{
+    return this.http
+    .post(
+      `${this.baseUrl}/addLoc`,
+      JSON.stringify(location),
+        this.options
+    )
   }
 
 }

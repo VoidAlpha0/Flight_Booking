@@ -45,6 +45,7 @@ export class AdminLoginComponent implements OnInit {
             this.router.navigate(["/adminHome"]);
             console.log('Form submitted:', this.loginForm.value);
             console.log("fucking logged in finally")
+            this.router.navigate(['/admin']);
           } else {
             console.log("no data got");
           }

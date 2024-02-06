@@ -16,6 +16,7 @@ import { UserHomeAddPassComponent } from './user-home-add-pass/user-home-add-pas
 import { UserHomeViewPassComponent } from './user-home-view-pass/user-home-view-pass.component';
 import { BookSeatsComponent } from './book-seats/book-seats.component';
 import { UserHomeShowTicketsComponent } from './user-home-show-tickets/user-home-show-tickets.component';
+import { LocationComponent } from './location/location.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UserHomeShowTicketsComponent } from './user-home-show-tickets/user-home
     UserHomeViewPassComponent,
     BookSeatsComponent,
     UserHomeShowTicketsComponent,
+    LocationComponent,
     
     
   ],
@@ -47,7 +49,8 @@ import { UserHomeShowTicketsComponent } from './user-home-show-tickets/user-home
       {path:'user-addPassenger',component:UserHomeAddPassComponent},
       {path:'user-viewPass',component:UserHomeViewPassComponent},
       {path:'user-book-seats',component:BookSeatsComponent},
-      {path:'user-show-tickets',component:UserHomeShowTicketsComponent}
+      {path:'user-show-tickets',component:UserHomeShowTicketsComponent},
+      {path:'location', component:LocationComponent}
     ]),
 
     FormsModule,
