@@ -1,49 +1,62 @@
-
-<div class="col-sm-3 bg-light box pt-5">
-    <h4 class="text-center">User Login</h4>
+<div class="container-fluid bg">
+    <div class="text-center text-white pt-2">
+      <h2><b><i>Airbus</i></b></h2>
+    </div>
+  
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+      <div class="col-sm-3 bg-light box pt-5">
+        <h4 class="text-center">Add a Passenger</h4>
         <form
-        #userlogin="ngForm"
-        (ngSubmit)="onClickSubmit(userlogin.value, userlogin)">
-            <div class="hi">
-                <div class="for">
-                    <div class="form-group">
-                        <br />
-
-                            <input
-                            type="text"
-                            name="passname"
-                            class="form-control"
-                            placeholder="Passenger Name"
-                            ngModel
-                            />
-                    </div>
+          #userlogin="ngForm"
+          (ngSubmit)="onClickSubmit(userlogin.value, userlogin)"
+          novalidate
+        >
+          <div class="hi">
+            <div class="for">
+              <div class="form-group">
+                <br />
+                <input
+                  type="text"
+                  name="passname"
+                  class="form-control"
+                  placeholder="Passenger Name"
+                  ngModel
+                  required
+                />
+                <div *ngIf="userlogin.controls['passname'].invalid && userlogin.controls['passname'].touched">
+                  <small class="text-danger">Passenger Name is required</small>
                 </div>
-
-                <div class="for">
-                    <div class="form-group">
-                        <br />
-
-                            <input
-                            type="text"
-                            name="passDOB"
-                            class="form-control"
-                            placeholder="Passenger DOB in DD-MM-YYYY"
-                            ngModel
-                            />
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <button class="btn btn-success m-2" type="submit" value="submit">
-                    Update
-                    </button>
-                    <button class="btn btn-primary" (click)="goBack()">Go back </button>
-                </div>
+              </div>
             </div>
+      
+            <div class="for">
+              <div class="form-group">
+                <br />
+                <input
+                  type="text"
+                  name="passDOB"
+                  class="form-control"
+                  placeholder="Passenger DOB in DD-MM-YYYY"
+                  ngModel
+                  required
+                  pattern="\d{2}-\d{2}-\d{4}"
+                />
+                <div *ngIf="userlogin.controls['passDOB'].invalid && userlogin.controls['passDOB'].touched">
+                  <small class="text-danger">Invalid DOB format (DD-MM-YYYY)</small>
+                </div>
+              </div>
+            </div>
+      
+            <div class="form-group">
+              <button class="btn btn-success m-2" type="submit" [disabled]="userlogin.invalid">
+                Update
+              </button>
+              <button class="btn btn-primary" (click)="goBack()">Go back </button>
+            </div>
+          </div>
         </form>
-    
-    <br>
-
-    
+        <br>
+      </div>
+    </div>
   </div>
+  

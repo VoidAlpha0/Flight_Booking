@@ -1,24 +1,31 @@
 <div class="container-fluid bg">
-    <div class="text-center text-white pt-2">
-      <h2><b><i>BlackPoolBus</i></b></h2>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 text-light rounded py-12">
-        <div class="p-4 md-3">
-          <div *ngIf="user">
-            <h3><b>Welcome to BlackPoolBus! <span class="text-danger"><i>{{user.username}}</i></span></b></h3>
-            <button class="btn btn-danger float-right" (click)="logout()">Logout</button>
-            <small><b>User Id: {{ user.userId }}</b></small><br />
-            <small><b>User Id: {{ user.username}}</b></small><br />
-  
-          </div>
+  <div class="text-center text-white pt-2">
+    <h2><b><i>BlackPoolBus</i></b></h2>
+  </div>
+
+  <!-- First Row -->
+  <div class="row">
+    <div class="col-6 text-light rounded py-12">
+      <div class="p-4 md-3">
+        <div *ngIf="user">
+          <h3><b>Welcome to BlackPoolBus! <span class="text-danger"><i>{{user.username}}</i></span></b></h3>
+          
+          <small><b>User Id: {{ user.userId }}</b></small><br />
+          <small><b>User Id: {{ user.username}}</b></small><br />
         </div>
       </div>
-    </div>  
+    
+    </div>
 
+    <div class="col-6 text-right py-2">
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+
+    <!-- Second Row -->
     <div class="opacity jumbotron m-2 p-6">
       <div class="row">
-        <div class="col-sm-4">
+        <!-- First Column -->
+        <div class="col-6">
           <div class="card bg2">
             <div class="card-body">
               <h3 class="card-title">Book flight</h3>
@@ -28,7 +35,8 @@
           </div>
         </div>
 
-        <div class="col-sm-4">
+        <!-- Second Column -->
+        <div class="col-6">
           <div class="card bg2">
             <div class="card-body">
               <h3 class="card-title">Add Passengers</h3>
@@ -38,8 +46,9 @@
           </div>
         </div>
 
-        <div class="col-sm-4">
-          <div class="card bg2">
+        <!-- Third Column -->
+        <div class="col-6">
+          <div class="card bg2 mt-3">
             <div class="card-body">
               <h3 class="card-title">Update User info</h3>
               <p class="card-text">User can update their information here.</p>
@@ -47,13 +56,10 @@
             </div>
           </div>
         </div>
-         
-        
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="card bg2">
+
+        <!-- Fourth Column -->
+        <div class="col-6">
+          <div class="card bg2 mt-3">
             <div class="card-body">
               <h3 class="card-title">View/Delete Passengers</h3>
               <p class="card-text">User can view/delete passengers from here.</p>
@@ -61,8 +67,12 @@
             </div>
           </div>
         </div>
-      </div>  
-    </div>    
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
           <!--<div *ngIf="user">
             <h3><b>Welcome to BlackPoolBus! <span class="text-danger"><i>{{user.userName}}</i></span></b></h3>
