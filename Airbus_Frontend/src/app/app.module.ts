@@ -17,6 +17,7 @@ import { UserHomeViewPassComponent } from './user-home-view-pass/user-home-view-
 import { BookSeatsComponent } from './book-seats/book-seats.component';
 import { UserHomeShowTicketsComponent } from './user-home-show-tickets/user-home-show-tickets.component';
 import { LocationComponent } from './location/location.component';
+import { AddFlightComponent } from './add-flight/add-flight.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LocationComponent } from './location/location.component';
     BookSeatsComponent,
     UserHomeShowTicketsComponent,
     LocationComponent,
+    AddFlightComponent,
     
     
   ],
@@ -50,7 +52,8 @@ import { LocationComponent } from './location/location.component';
       {path:'user-viewPass',component:UserHomeViewPassComponent},
       {path:'user-book-seats',component:BookSeatsComponent},
       {path:'user-show-tickets',component:UserHomeShowTicketsComponent},
-      {path:'location', component:LocationComponent}
+      {path:'location', component:LocationComponent},
+      {path:'add-flight', component:AddFlightComponent}
     ]),
 
     FormsModule,
