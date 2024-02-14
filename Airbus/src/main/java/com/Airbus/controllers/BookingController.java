@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Set;
 import java.util.List;
 import java.util.Optional;
+import java.util.*;
 import com.Airbus.Dao.*;
 import javax.transaction.Transactional;
 import com.Airbus.entity.User;
@@ -69,8 +70,8 @@ FlightService flserv;
 	public ResponseEntity<Flight> ticketGen(@RequestBody TicketGenerationRequest request, 
 			@PathVariable("flightid") Integer flightId){
 		
-		Set<Optional<Passengers>> passengers = request.getPassengers();
-	    Set<Optional<Ticket>> tempseats = request.getTempseats();
+		LinkedHashSet<Optional<Passengers>> passengers = request.getPassengers();
+	    LinkedHashSet<Optional<Ticket>> tempseats = request.getTempseats();
 		
 		Flight flight= flserv.findFlightbyID(flightId);
 		int count=0;
@@ -92,6 +93,7 @@ FlightService flserv;
 				tempseats.remove(t);
 				break;
 			}
+			//passengers.remove(passenger);
 		}
 		
 		

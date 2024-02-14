@@ -2,7 +2,7 @@ package com.Airbus.entity;
 
 import java.util.HashSet;
 import java.util.Set;
-
+import java.util.LinkedHashSet;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,7 +37,7 @@ public class Flight {
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="flight_tickets", joinColumns= {@JoinColumn(name="flightId")}, inverseJoinColumns= {@JoinColumn(name="ticketId")})
-	private Set<Ticket>tickets=new HashSet<Ticket>();
+	private Set<Ticket>tickets=new LinkedHashSet<Ticket>();
 
 	/**************************GETTERS AND SETTERS***************************/
 	
