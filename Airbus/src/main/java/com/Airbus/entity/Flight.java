@@ -31,7 +31,16 @@ public class Flight {
 	@JoinTable(name="flight_destination_linked", joinColumns= {@JoinColumn(name="flightId")}, inverseJoinColumns= {@JoinColumn(name="locId")})
 	private Location flightdestination;
 	
-	private String flightdate;
+	private String departureDate;
+	
+	private String departureTime;
+	
+	private String arrivalDate;
+	
+	private String arrivalTime;
+	
+	private Integer price; 
+	
 	
 	/******************************JOINS*************************************/
 	
@@ -41,9 +50,6 @@ public class Flight {
 
 	/**************************GETTERS AND SETTERS***************************/
 	
-	public String getFlightdate() {
-		return flightdate;
-	}
 	
 	public Set<Ticket> getTickets() {
 		return tickets;
@@ -56,13 +62,34 @@ public class Flight {
 		this.tickets.add(ticket);
 		}
 	
+	public String getDepartureDate() {
+		return departureDate;
+	}
+	public void setDepartureDate(String departureDate) {
+		this.departureDate = departureDate;
+	}
+	public String getDepartureTime() {
+		return departureTime;
+	}
+	public void setDepartureTime(String departureTime) {
+		this.departureTime = departureTime;
+	}
+	public String getArrivalDate() {
+		return arrivalDate;
+	}
+	public void setArrivalDate(String arrivalDate) {
+		this.arrivalDate = arrivalDate;
+	}
+	public String getArrivalTime() {
+		return arrivalTime;
+	}
+	public void setArrivalTime(String arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
 	public void removeTicket(Ticket ticket) {
 		this.tickets.remove(ticket);
 	}
 	
-	public void setFlightdate(String flightdate) {
-		this.flightdate = flightdate;
-	}
 	public Integer getFlightId() {
 		return flightId;
 	}
@@ -71,6 +98,12 @@ public class Flight {
 	}
 	public Location getFlightsource() {
 		return flightsource;
+	}
+	public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 	public void setFlightsource(Location flightsource) {
 		this.flightsource = flightsource;

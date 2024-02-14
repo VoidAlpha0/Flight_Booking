@@ -34,7 +34,7 @@ public class LocationService {
 		Optional<Location> loc= locationdao.findById(id);
 		Location location= loc.get();
 		return location;
-		
 	}
+	
 
 }

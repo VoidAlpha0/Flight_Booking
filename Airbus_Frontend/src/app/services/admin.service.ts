@@ -31,5 +31,17 @@ export class AdminService {
         this.options
     )
   }
+  public getLocations(){
+    let location= this.http.get('http://localhost:8086/Admin/getLocations')
+    console.log(location)
+    return this.http.get('http://localhost:8086/Admin/getLocations')
+  }
 
+
+
+
+  addFlight(flight: any, dropdownChoiceValue: never): Observable<Object> {
+    console.log(flight);
+    return this.http.post(`${this.baseUrl}/addFlight/${dropdownChoiceValue}/5`, JSON.stringify(flight),this.options);
+  }
 }
