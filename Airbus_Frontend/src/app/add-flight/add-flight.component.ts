@@ -95,7 +95,7 @@ export class AddFlightComponent implements OnInit {
 
   locations: location[] =[]
   formatLocation(location: any): string {
-    return `${location.locId}`;
+    return `${location.city} Terminal: ${location.terminal}  Country: ${location.country}`;
   }
   
   onSubmit() {
